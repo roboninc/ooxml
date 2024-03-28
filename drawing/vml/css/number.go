@@ -110,30 +110,30 @@ func fromString(n string) Number {
 	if parsed != nil {
 		switch parsed[2] {
 		case "cm":
-			if cm, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+			if cm, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 				return Number{cm, UnitCm}
 			}
 		case "mm":
-			if mm, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+			if mm, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 				return Number{mm, UnitMm}
 			}
 		case "in":
-			if in, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+			if in, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 				return Number{in, UnitIn}
 			}
 		case "pt":
-			if pt, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+			if pt, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 				return Number{pt, UnitPt}
 			}
 		case "pc":
-			if pc, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+			if pc, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 				return Number{pc, UnitPc}
 			}
 		case "%":
 			if num, err := strconv.ParseInt(parsed[1], 10, 64); err == nil {
 				return Number{int(num), UnitPercentage}
 			} else {
-				if num, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+				if num, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 					return Number{num, UnitPercentage}
 				}
 			}
@@ -143,7 +143,7 @@ func fromString(n string) Number {
 			if num, err := strconv.ParseInt(parsed[1], 10, 64); err == nil {
 				return Number{int(num), UnitPx}
 			} else {
-				if num, err := strconv.ParseFloat(parsed[1], 10); err == nil {
+				if num, err := strconv.ParseFloat(parsed[1], 64); err == nil {
 					return Number{num, UnitPt}
 				}
 			}

@@ -22,7 +22,7 @@ var (
 func (f *Fraction) UnmarshalXMLAttr(attr xml.Attr) error {
 	parsed := regExpFraction.FindStringSubmatch(attr.Value)
 	if parsed != nil {
-		if v, err := strconv.ParseFloat(parsed[1], 10); err != nil {
+		if v, err := strconv.ParseFloat(parsed[1], 32); err != nil {
 			return err
 		} else {
 			if parsed[2] == "%" {

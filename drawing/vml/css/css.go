@@ -80,7 +80,7 @@ func NewStyle(s string) *Style {
 				case string:
 					field.SetString(value)
 				case float32, float64:
-					if f, ok := strconv.ParseFloat(value, 10); ok == nil {
+					if f, ok := strconv.ParseFloat(value, 64); ok == nil {
 						field.SetFloat(f)
 					}
 				case byte, uint, uint16, uint32, uint64, int, int8, int16, int32, int64:
