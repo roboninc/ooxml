@@ -6,16 +6,17 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Formulas is direct mapping of CT_Formulas
+// Formulas is direct mapping of CT_Formulas
 type Formulas struct {
 	XMLName xml.Name  `xml:"formulas"`
 	List    []Formula `xml:"f"`
 }
 
-//Formula is direct mapping of CT_F
+// Formula is direct mapping of CT_F
 type Formula string
 
 type formula struct {

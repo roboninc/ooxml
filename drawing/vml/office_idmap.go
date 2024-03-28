@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//IdMap is direct mapping of CT_IdMap
+// IdMap is direct mapping of CT_IdMap
 type IdMap struct {
 	XMLName xml.Name `xml:"idmap"`
 	Ext     ExtType  `xml:"ext,attr,omitempty"`

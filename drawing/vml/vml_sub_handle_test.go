@@ -7,10 +7,11 @@ package vml_test
 import (
 	"bytes"
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml"
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
+
+	"github.com/roboninc/ooxml/drawing/vml"
+	"github.com/stretchr/testify/require"
 )
 
 func TestHandle(t *testing.T) {

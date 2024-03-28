@@ -7,15 +7,16 @@ package css
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/plandem/ooxml"
-	"github.com/plandem/ooxml/ml"
 	"reflect"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/roboninc/ooxml"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Style is helper type for AG_Style
+// Style is helper type for AG_Style
 type Style struct {
 	Position          Position        `css:"position"`
 	Left              Number          `css:"left"`
@@ -49,7 +50,7 @@ var (
 	regExpCss = regexp.MustCompile("(?P<key>[a-zA-z-]+):(?P<value>[0-9a-zA-Z.%-- ]+)+")
 )
 
-//NewStyle decodes VML CSS string into Style type
+// NewStyle decodes VML CSS string into Style type
 func NewStyle(s string) *Style {
 	parsed := regExpCss.FindAllStringSubmatch(s, -1)
 	mapped := make(map[string]string)
@@ -94,7 +95,7 @@ func NewStyle(s string) *Style {
 	return &style
 }
 
-//String is alias for Encode that return string version of styles
+// String is alias for Encode that return string version of styles
 func (s Style) String() string {
 	return s.encode()
 }
@@ -127,7 +128,7 @@ func (s Style) encode() string {
 	return strings.Join(result, ";")
 }
 
-//MarshalXMLAttr marshal Style
+// MarshalXMLAttr marshal Style
 func (s *Style) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	if v := s.String(); len(v) > 0 {
 		return xml.Attr{Name: name, Value: v}, nil
@@ -136,7 +137,7 @@ func (s *Style) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	return xml.Attr{}, nil
 }
 
-//UnmarshalXMLAttr unmarshal Style
+// UnmarshalXMLAttr unmarshal Style
 func (s *Style) UnmarshalXMLAttr(attr xml.Attr) error {
 	*s = *NewStyle(attr.Value)
 	return nil

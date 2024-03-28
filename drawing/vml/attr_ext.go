@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ExtType is a type to encode ST_Ext
+// ExtType is a type to encode ST_Ext
 type ExtType byte
 
 var (
@@ -17,7 +18,7 @@ var (
 	fromExtType map[ExtType]string
 )
 
-//List of all possible values for ExtType
+// List of all possible values for ExtType
 const (
 	_ ExtType = iota
 	ExtTypeEdit
@@ -38,12 +39,12 @@ func init() {
 	}
 }
 
-//String returns string presentation of ExtType
+// String returns string presentation of ExtType
 func (t ExtType) String() string {
 	return fromExtType[t]
 }
 
-//MarshalXMLAttr marshal ExtType
+// MarshalXMLAttr marshal ExtType
 func (t ExtType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	attr := xml.Attr{Name: ml.ApplyNamespacePrefix(ml.NamespaceVML, name)}
 
@@ -56,7 +57,7 @@ func (t ExtType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	return attr, nil
 }
 
-//UnmarshalXMLAttr unmarshal ExtType
+// UnmarshalXMLAttr unmarshal ExtType
 func (t *ExtType) UnmarshalXMLAttr(attr xml.Attr) error {
 	if v, ok := toExtType[attr.Value]; ok {
 		*t = v

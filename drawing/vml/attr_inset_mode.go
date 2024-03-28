@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//InsetModeType is a type to encode ST_InsetMode
+// InsetModeType is a type to encode ST_InsetMode
 type InsetModeType byte
 
 var (
@@ -17,7 +18,7 @@ var (
 	fromInsetMode map[InsetModeType]string
 )
 
-//List of all possible values for InsetMode
+// List of all possible values for InsetMode
 const (
 	_ InsetModeType = iota
 	InsetModeCustom
@@ -36,12 +37,12 @@ func init() {
 	}
 }
 
-//String returns string presentation of InsetModeType
+// String returns string presentation of InsetModeType
 func (t InsetModeType) String() string {
 	return fromInsetMode[t]
 }
 
-//MarshalXMLAttr marshal InsetModeType
+// MarshalXMLAttr marshal InsetModeType
 func (t InsetModeType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	attr := xml.Attr{Name: ml.ApplyNamespacePrefix(ml.NamespaceVMLOffice, name)}
 
@@ -54,7 +55,7 @@ func (t InsetModeType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	return attr, nil
 }
 
-//UnmarshalXMLAttr unmarshal InsetModeType
+// UnmarshalXMLAttr unmarshal InsetModeType
 func (t *InsetModeType) UnmarshalXMLAttr(attr xml.Attr) error {
 	if v, ok := toInsetMode[attr.Value]; ok {
 		*t = v

@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//image is direct mapping of CT_Image
+// image is direct mapping of CT_Image
 type image struct {
 	XMLName xml.Name `xml:"image"`
 	ml.ReservedAttributes
@@ -18,7 +19,7 @@ type image struct {
 	shapeElements
 }
 
-//Image creates a new object with default values
+// Image creates a new object with default values
 func Image() *image {
 	return &image{}
 }

@@ -5,11 +5,12 @@
 package ooxml_test
 
 import (
-	"github.com/plandem/ooxml"
-	"github.com/stretchr/testify/assert"
-	"github.com/stretchr/testify/require"
 	"os"
 	"testing"
+
+	"github.com/roboninc/ooxml"
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestOpening(t *testing.T) {

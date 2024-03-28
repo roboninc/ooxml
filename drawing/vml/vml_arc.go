@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//arc is alias of CT_Arc
+// arc is alias of CT_Arc
 type arc struct {
 	XMLName    xml.Name `xml:"arc"`
 	StartAngle int      `xml:"startangle,attr,omitempty"`
@@ -18,7 +19,7 @@ type arc struct {
 	shapeElements
 }
 
-//Arc creates a new object with default values
+// Arc creates a new object with default values
 func Arc() *arc {
 	return &arc{
 		StartAngle: 0,

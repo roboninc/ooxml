@@ -6,35 +6,36 @@ package ml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/index"
 	"strings"
+
+	"github.com/roboninc/ooxml/index"
 )
 
-//Reserved is special type that catches all inner content AS IS to save original information - used to mark 'non implemented' elements
+// Reserved is special type that catches all inner content AS IS to save original information - used to mark 'non implemented' elements
 type Reserved struct {
 	XMLName  xml.Name
 	InnerXML string `xml:",innerxml"`
 	ReservedAttributes
 }
 
-//ReservedAttributes is a special type that catches all not captured attributes AS IS to save original information
+// ReservedAttributes is a special type that catches all not captured attributes AS IS to save original information
 type ReservedAttributes struct {
 	Attrs []xml.Attr `xml:",any,attr"`
 }
 
-//ReservedElements is a special type that catches all not captured nested elements AS IS to save original information
+// ReservedElements is a special type that catches all not captured nested elements AS IS to save original information
 type ReservedElements struct {
 	Nodes []Reserved `xml:",any"`
 }
 
-//ResolveNamespacePrefixes transforms namespaces into namespaces prefixes
+// ResolveNamespacePrefixes transforms namespaces into namespaces prefixes
 func (r ReservedAttributes) ResolveNamespacePrefixes() {
 	for i, attr := range r.Attrs {
 		r.Attrs[i].Name = ApplyNamespacePrefix(attr.Name.Space, attr.Name)
 	}
 }
 
-//ResolveNamespacePrefixes tries to resolve namespace and apply prefix for it for all reserved elements
+// ResolveNamespacePrefixes tries to resolve namespace and apply prefix for it for all reserved elements
 func (r ReservedElements) ResolveNamespacePrefixes() {
 	for i, node := range r.Nodes {
 		r.Nodes[i].XMLName = ApplyNamespacePrefix(node.XMLName.Space, node.XMLName)
@@ -42,7 +43,7 @@ func (r ReservedElements) ResolveNamespacePrefixes() {
 	}
 }
 
-//Hash builds hash code for all required values of Reserved to use as unique index
+// Hash builds hash code for all required values of Reserved to use as unique index
 func (r *Reserved) Hash() index.Code {
 	reserved := r
 	if reserved == nil {

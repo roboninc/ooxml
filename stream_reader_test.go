@@ -8,8 +8,9 @@ import (
 	"archive/zip"
 	"encoding/xml"
 	"fmt"
-	"github.com/plandem/ooxml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml"
+	"github.com/roboninc/ooxml/ml"
 )
 
 func ExampleStreamFileReader() {

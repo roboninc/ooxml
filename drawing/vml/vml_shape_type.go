@@ -6,11 +6,12 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
 	"strconv"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ShapeType is direct mapping of CT_ShapeType
+// ShapeType is direct mapping of CT_ShapeType
 type ShapeType struct {
 	XMLName xml.Name `xml:"shapetype"`
 	Path    string   `xml:"path,attr,omitempty"`

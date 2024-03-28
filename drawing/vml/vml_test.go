@@ -7,12 +7,13 @@ package vml
 import (
 	"bytes"
 	"encoding/xml"
-	"github.com/go-test/deep"
-	"github.com/plandem/ooxml/drawing/vml/css"
-	"github.com/plandem/ooxml/ml"
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
+
+	"github.com/go-test/deep"
+	"github.com/roboninc/ooxml/drawing/vml/css"
+	"github.com/roboninc/ooxml/ml"
+	"github.com/stretchr/testify/require"
 )
 
 func TestExcel_MarshalXML(t *testing.T) {

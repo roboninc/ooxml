@@ -6,17 +6,18 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//oval is direct mapping of CT_Oval
+// oval is direct mapping of CT_Oval
 type oval struct {
 	XMLName xml.Name `xml:"oval"`
 	shapeAttributes
 	shapeElements
 }
 
-//Oval creates a new object with default values
+// Oval creates a new object with default values
 func Oval() *oval {
 	return &oval{}
 }

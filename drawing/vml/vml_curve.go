@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//curve is direct mapping of CT_Curve
+// curve is direct mapping of CT_Curve
 type curve struct {
 	XMLName  xml.Name `xml:"curve"`
 	From     string   `xml:"from,attr,omitempty"`
@@ -20,7 +21,7 @@ type curve struct {
 	shapeElements
 }
 
-//Curve creates a new object with default values
+// Curve creates a new object with default values
 func Curve() *curve {
 	return &curve{
 		From:     "0,0",

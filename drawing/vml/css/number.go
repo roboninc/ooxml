@@ -11,7 +11,7 @@ import (
 	"strconv"
 )
 
-//Number is helper type which allow to encode numbers with units. To simplify, integer as value in pixels and float as value in points. Eg. 10 => 10px, 10.5 => 10.5pt
+// Number is helper type which allow to encode numbers with units. To simplify, integer as value in pixels and float as value in points. Eg. 10 => 10px, 10.5 => 10.5pt
 type Number struct {
 	val  interface{}
 	unit numberUnit
@@ -34,7 +34,7 @@ var (
 	regExpNumber = regexp.MustCompile("^([0-9.]+)(cm|mm|in|pt|pc|px|%)?$")
 )
 
-//NewNumber returns a Number type for provided value
+// NewNumber returns a Number type for provided value
 func NewNumber(n interface{}, o ...numberUnit) Number {
 	if s, ok := n.(string); ok {
 		return fromString(s)
@@ -67,7 +67,7 @@ func NewNumber(n interface{}, o ...numberUnit) Number {
 	return Number{n, u}
 }
 
-//String returns string presentation of Number
+// String returns string presentation of Number
 func (t Number) String() string {
 	switch t.unit {
 	case UnitCm:
@@ -89,7 +89,7 @@ func (t Number) String() string {
 	return ""
 }
 
-//MarshalXMLAttr marshal Number
+// MarshalXMLAttr marshal Number
 func (t Number) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	if t.unit == unitUnknown {
 		return xml.Attr{}, nil
@@ -98,13 +98,13 @@ func (t Number) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	return xml.Attr{Name: name, Value: t.String()}, nil
 }
 
-//UnmarshalXMLAttr unmarshal Number
+// UnmarshalXMLAttr unmarshal Number
 func (t *Number) UnmarshalXMLAttr(attr xml.Attr) error {
 	*t = NewNumber(attr.Value)
 	return nil
 }
 
-//convert string into Number
+// convert string into Number
 func fromString(n string) Number {
 	parsed := regExpNumber.FindStringSubmatch(n)
 	if parsed != nil {

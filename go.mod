@@ -1,4 +1,4 @@
-module github.com/plandem/ooxml
+module github.com/roboninc/ooxml
 
 go 1.12
 

@@ -5,17 +5,17 @@
 package ooxml
 
 import (
-	"github.com/plandem/ooxml/ml"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ContentTypes is helper object that implements some functionality for content types that is a required part of any OOXML document
+// ContentTypes is helper object that implements some functionality for content types that is a required part of any OOXML document
 type ContentTypes struct {
 	ml   ml.ContentTypes
 	pkg  *PackageInfo
 	file *PackageFile
 }
 
-//newContentTypes creates and returns content types information
+// newContentTypes creates and returns content types information
 func newContentTypes(f interface{}, pkg *PackageInfo) *ContentTypes {
 	content := &ContentTypes{
 		pkg: pkg,
@@ -26,7 +26,7 @@ func newContentTypes(f interface{}, pkg *PackageInfo) *ContentTypes {
 	return content
 }
 
-//RegisterType adds information about a new type of content if there is no such type already
+// RegisterType adds information about a new type of content if there is no such type already
 func (ct *ContentTypes) RegisterType(extension string, contentType ml.ContentType) {
 	//check if there is type with such extension already, and if it's here then ignore
 	for _, def := range ct.ml.Defaults {
@@ -43,7 +43,7 @@ func (ct *ContentTypes) RegisterType(extension string, contentType ml.ContentTyp
 	ct.file.MarkAsUpdated()
 }
 
-//RegisterContent adds information about a new content with fileName of contentType
+// RegisterContent adds information about a new content with fileName of contentType
 func (ct *ContentTypes) RegisterContent(fileName string, contentType ml.ContentType) {
 	if fileName[0] != '/' {
 		fileName = "/" + fileName
@@ -57,7 +57,7 @@ func (ct *ContentTypes) RegisterContent(fileName string, contentType ml.ContentT
 	ct.file.MarkAsUpdated()
 }
 
-//RemoveContent removes information about a content with fileName
+// RemoveContent removes information about a content with fileName
 func (ct *ContentTypes) RemoveContent(fileName string) {
 	for i, part := range ct.ml.Overrides {
 		if part.PartName == fileName {
@@ -68,7 +68,7 @@ func (ct *ContentTypes) RemoveContent(fileName string) {
 	}
 }
 
-//CountTypes returns total number of contentType items
+// CountTypes returns total number of contentType items
 func (ct *ContentTypes) CountTypes(contentType ml.ContentType) int {
 	total := 0
 

@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ShapeLayout is alias for CT_ShapeLayout
+// ShapeLayout is alias for CT_ShapeLayout
 type ShapeLayout struct {
 	XMLName xml.Name `xml:"shapelayout"`
 	Ext     ExtType  `xml:"ext,attr,omitempty"`

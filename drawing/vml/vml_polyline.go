@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//polyLine is direct mapping of CT_PolyLine
+// polyLine is direct mapping of CT_PolyLine
 type polyLine struct {
 	XMLName xml.Name `xml:"polyline"`
 	Points  string   `xml:"points,attr,omitempty"`
@@ -17,7 +18,7 @@ type polyLine struct {
 	shapeElements
 }
 
-//PolyLine creates a new object with default values
+// PolyLine creates a new object with default values
 func PolyLine() *polyLine {
 	return &polyLine{
 		Points: "0,0 10,10",

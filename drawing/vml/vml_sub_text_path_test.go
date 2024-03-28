@@ -7,11 +7,12 @@ package vml_test
 import (
 	"bytes"
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml"
-	"github.com/plandem/ooxml/ml"
-	"github.com/stretchr/testify/require"
 	"strings"
 	"testing"
+
+	"github.com/roboninc/ooxml/drawing/vml"
+	"github.com/roboninc/ooxml/ml"
+	"github.com/stretchr/testify/require"
 )
 
 func TestTextPath(t *testing.T) {

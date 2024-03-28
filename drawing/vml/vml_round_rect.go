@@ -6,11 +6,12 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml/css"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/drawing/vml/css"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//roundRect is direct mapping of CT_RoundRect
+// roundRect is direct mapping of CT_RoundRect
 type roundRect struct {
 	XMLName xml.Name     `xml:"roundrect"`
 	ArcSize css.Fraction `xml:"arcsize,attr,omitempty"`
@@ -18,7 +19,7 @@ type roundRect struct {
 	shapeElements
 }
 
-//RoundRect creates a new object with default values
+// RoundRect creates a new object with default values
 func RoundRect() *roundRect {
 	return &roundRect{
 		ArcSize: 0.2,

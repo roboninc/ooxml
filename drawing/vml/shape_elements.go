@@ -4,7 +4,7 @@
 
 package vml
 
-import "github.com/plandem/ooxml/ml"
+import "github.com/roboninc/ooxml/ml"
 
 //N.B.:
 // Microsoft Office extended VML for more elements, but in reality only limited subset is used,

@@ -6,11 +6,12 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml/css"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/drawing/vml/css"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//StrokeAttributes is direct mapping of AG_StrokeAttributes
+// StrokeAttributes is direct mapping of AG_StrokeAttributes
 type StrokeAttributes struct {
 	Color            string            `xml:"color,attr,omitempty"`
 	Color2           string            `xml:"color2,attr,omitempty"`
@@ -36,7 +37,7 @@ type StrokeAttributes struct {
 	ml.ReservedAttributes
 }
 
-//Stroke is direct mapping of CT_Stroke
+// Stroke is direct mapping of CT_Stroke
 type Stroke struct {
 	XMLName xml.Name          `xml:"stroke"`
 	Left    *StrokeAttributes `xml:"left,omitempty"`

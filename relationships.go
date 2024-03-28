@@ -6,21 +6,22 @@ package ooxml
 
 import (
 	"fmt"
-	"github.com/plandem/ooxml/ml"
 	"math"
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Relationships is a higher level object that wraps OOXML relationships with functionality
+// Relationships is a higher level object that wraps OOXML relationships with functionality
 type Relationships struct {
 	ml   ml.Relationships
 	pkg  *PackageInfo
 	file *PackageFile
 }
 
-//NewRelationships creates and returns relationships
+// NewRelationships creates and returns relationships
 func NewRelationships(f interface{}, pkg *PackageInfo) *Relationships {
 	rels := &Relationships{
 		pkg: pkg,
@@ -37,12 +38,12 @@ func NewRelationships(f interface{}, pkg *PackageInfo) *Relationships {
 	return rels
 }
 
-//FileName returns file name of relations
+// FileName returns file name of relations
 func (rels *Relationships) FileName() string {
 	return rels.file.fileName
 }
 
-//Total returns total number of relationships
+// Total returns total number of relationships
 func (rels *Relationships) Total() int {
 	return len(rels.ml.Relationships)
 }
@@ -94,12 +95,12 @@ func (rels *Relationships) GetIdByTarget(target string) ml.RID {
 	return ""
 }
 
-//AddLink adds a new relation of type t to external target - e.g.: url
+// AddLink adds a new relation of type t to external target - e.g.: url
 func (rels *Relationships) AddLink(t ml.RelationType, target string) (int, ml.RID) {
 	return rels.add(t, target, ml.TargetModeExternal)
 }
 
-//AddFile adds a new relation of type t to internal target, i.e. file inside of package. For simplicity - use absolute paths.
+// AddFile adds a new relation of type t to internal target, i.e. file inside of package. For simplicity - use absolute paths.
 func (rels *Relationships) AddFile(t ml.RelationType, target string) (int, ml.RID) {
 	if target[0] != '/' {
 		target = "/" + target
@@ -133,7 +134,7 @@ func (rels *Relationships) add(t ml.RelationType, target string, mode ml.TargetM
 	return id, ml.RID(rid)
 }
 
-//Remove removes relation with provided rid
+// Remove removes relation with provided rid
 func (rels *Relationships) Remove(rid ml.RID) {
 	//remove relation
 	for i, r := range rels.ml.Relationships {

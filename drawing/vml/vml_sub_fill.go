@@ -6,11 +6,12 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml/css"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/drawing/vml/css"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Fill is direct mapping of CT_Fill
+// Fill is direct mapping of CT_Fill
 type Fill struct {
 	XMLName         xml.Name        `xml:"fill"`
 	Color           string          `xml:"color,attr,omitempty"`

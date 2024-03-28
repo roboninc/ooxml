@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ConnectType is direct mapping of ST_ConnectType
+// ConnectType is direct mapping of ST_ConnectType
 type ConnectType byte
 
 var (
@@ -17,7 +18,7 @@ var (
 	fromConnectType map[ConnectType]string
 )
 
-//List of all possible values for ConnectType
+// List of all possible values for ConnectType
 const (
 	_ ConnectType = iota
 	ConnectTypeNone
@@ -40,12 +41,12 @@ func init() {
 	}
 }
 
-//String returns string presentation of ConnectType
+// String returns string presentation of ConnectType
 func (t ConnectType) String() string {
 	return fromConnectType[t]
 }
 
-//MarshalXMLAttr marshal ConnectType
+// MarshalXMLAttr marshal ConnectType
 func (t ConnectType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	attr := xml.Attr{Name: ml.ApplyNamespacePrefix(ml.NamespaceVMLOffice, name)}
 
@@ -58,7 +59,7 @@ func (t ConnectType) MarshalXMLAttr(name xml.Name) (xml.Attr, error) {
 	return attr, nil
 }
 
-//UnmarshalXMLAttr unmarshal ConnectType
+// UnmarshalXMLAttr unmarshal ConnectType
 func (t *ConnectType) UnmarshalXMLAttr(attr xml.Attr) error {
 	if v, ok := toConnectType[attr.Value]; ok {
 		*t = v

@@ -6,16 +6,17 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Handles is direct mapping of CT_Handles
+// Handles is direct mapping of CT_Handles
 type Handles struct {
 	XMLName xml.Name `xml:"handles"`
 	List    []Handle `xml:"h"`
 }
 
-//Handle is direct mapping of CT_H
+// Handle is direct mapping of CT_H
 type Handle struct {
 	InvX        bool   `xml:"invx,attr,omitempty"`
 	InvY        bool   `xml:"invy,attr,omitempty"`

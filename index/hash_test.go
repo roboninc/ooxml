@@ -5,9 +5,10 @@
 package index_test
 
 import (
-	"github.com/plandem/ooxml/index"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/roboninc/ooxml/index"
+	"github.com/stretchr/testify/require"
 )
 
 func TestHash(t *testing.T) {

@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//TextPath is direct mapping of CT_TextPath
+// TextPath is direct mapping of CT_TextPath
 type TextPath struct {
 	XMLName  xml.Name        `xml:"textpath"`
 	Style    string          `xml:"style,attr,omitempty"`

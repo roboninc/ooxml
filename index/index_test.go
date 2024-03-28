@@ -5,10 +5,11 @@
 package index_test
 
 import (
-	"github.com/plandem/ooxml/index"
-	"github.com/stretchr/testify/require"
 	"strconv"
 	"testing"
+
+	"github.com/roboninc/ooxml/index"
+	"github.com/stretchr/testify/require"
 )
 
 type value int

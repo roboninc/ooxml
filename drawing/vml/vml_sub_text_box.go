@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//TextBox is direct mapping of CT_TextBox
+// TextBox is direct mapping of CT_TextBox
 type TextBox struct {
 	XMLName   xml.Name      `xml:"textbox"`
 	Style     string        `xml:"style,attr,omitempty"`

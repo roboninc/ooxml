@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//imageAttributes is direct mapping of AG_ImageAttributes
+// imageAttributes is direct mapping of AG_ImageAttributes
 type imageAttributes struct {
 	Src           string          `xml:"src,attr,omitempty"`
 	CropLeft      float64         `xml:"cropleft,attr,omitempty"`
@@ -23,7 +24,7 @@ type imageAttributes struct {
 	BlackAndWhite ml.TriStateType `xml:"bilevel,attr,omitempty"`
 }
 
-//ImageData is direct mapping of CT_ImageData
+// ImageData is direct mapping of CT_ImageData
 type ImageData struct {
 	XMLName xml.Name `xml:"imagedata"`
 	ml.ReservedAttributes

@@ -6,7 +6,8 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
 // line is direct mapping of CT_Line
@@ -18,7 +19,7 @@ type line struct {
 	shapeElements
 }
 
-//Line creates a new object with default values
+// Line creates a new object with default values
 func Line() *line {
 	return &line{
 		From: "0,0",

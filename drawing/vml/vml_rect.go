@@ -6,17 +6,18 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//rect is direct mapping of CT_Rect
+// rect is direct mapping of CT_Rect
 type rect struct {
 	XMLName xml.Name `xml:"rect"`
 	shapeAttributes
 	shapeElements
 }
 
-//Rect creates a new object with default values
+// Rect creates a new object with default values
 func Rect() *rect {
 	return &rect{}
 }

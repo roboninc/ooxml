@@ -6,7 +6,8 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
 type officeDrawing struct {
@@ -17,16 +18,16 @@ type officeDrawing struct {
 	ml.ReservedElements
 }
 
-//Excel is type for Excel VML Drawings
+// Excel is type for Excel VML Drawings
 type Excel officeDrawing
 
-//Word is type for Word VML Drawings
+// Word is type for Word VML Drawings
 type Word officeDrawing
 
-//PowerPoint is type for PowerPoint VML Drawings
+// PowerPoint is type for PowerPoint VML Drawings
 type PowerPoint officeDrawing
 
-//MarshalXML marshals Excel Drawings
+// MarshalXML marshals Excel Drawings
 func (o *Excel) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = xml.Name{Local: "xml"}
 	start.Attr = append(start.Attr, ml.Namespaces(
@@ -39,7 +40,7 @@ func (o *Excel) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	return e.EncodeElement(*o, start)
 }
 
-//MarshalXML marshals Word Drawings
+// MarshalXML marshals Word Drawings
 func (o *Word) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = xml.Name{Local: "xml"}
 	start.Attr = append(start.Attr, ml.Namespaces(
@@ -52,7 +53,7 @@ func (o *Word) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	return e.EncodeElement(*o, start)
 }
 
-//MarshalXML marshals PowerPoint Drawings
+// MarshalXML marshals PowerPoint Drawings
 func (o *PowerPoint) MarshalXML(e *xml.Encoder, start xml.StartElement) error {
 	start.Name = xml.Name{Local: "xml"}
 	start.Attr = append(start.Attr, ml.Namespaces(

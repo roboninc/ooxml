@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Path is direct mapping of CT_Path
+// Path is direct mapping of CT_Path
 type Path struct {
 	XMLName         xml.Name        `xml:"path"`
 	Value           string          `xml:"v,attr,omitempty"`

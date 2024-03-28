@@ -6,10 +6,11 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/ml"
 )
 
-//ClientData is direct mapping of CT_ClientData
+// ClientData is direct mapping of CT_ClientData
 type ClientData struct {
 	XMLName       xml.Name             `xml:"ClientData"`
 	Type          ObjectType           `xml:"ObjectType,attr"`
@@ -28,7 +29,7 @@ type ClientData struct {
 	ml.ReservedElements
 }
 
-//Go1.12 doesn't support namespace prefixes, so clientDataEncode is copy of original ClientData type, but with hardcoded namespace to simplify process of encoding
+// Go1.12 doesn't support namespace prefixes, so clientDataEncode is copy of original ClientData type, but with hardcoded namespace to simplify process of encoding
 type clientDataEncode struct {
 	XMLName       xml.Name
 	Type          ObjectType           `xml:"ObjectType,attr"`

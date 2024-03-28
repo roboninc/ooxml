@@ -7,9 +7,10 @@ package vml_test
 import (
 	"encoding/xml"
 	"fmt"
-	"github.com/plandem/ooxml/drawing/vml"
-	"github.com/stretchr/testify/require"
 	"testing"
+
+	"github.com/roboninc/ooxml/drawing/vml"
+	"github.com/stretchr/testify/require"
 )
 
 func TestStrokeArrowWidth(t *testing.T) {

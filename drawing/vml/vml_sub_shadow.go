@@ -6,11 +6,12 @@ package vml
 
 import (
 	"encoding/xml"
-	"github.com/plandem/ooxml/drawing/vml/css"
-	"github.com/plandem/ooxml/ml"
+
+	"github.com/roboninc/ooxml/drawing/vml/css"
+	"github.com/roboninc/ooxml/ml"
 )
 
-//Shadow is direct mapping of CT_Shadow
+// Shadow is direct mapping of CT_Shadow
 type Shadow struct {
 	XMLName  xml.Name        `xml:"shadow"`
 	On       ml.TriStateType `xml:"on,attr,omitempty"`
